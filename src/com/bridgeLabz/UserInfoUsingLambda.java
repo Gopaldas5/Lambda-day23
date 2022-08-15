@@ -19,12 +19,18 @@ public class UserInfoUsingLambda {
         Matcher matcher = mobileNumber.matcher(mobile_num);
         return matcher.matches();
     };
+    IPassword password = (passwordRegex) ->{
+        Pattern password1 = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
+        Matcher matcher = password1.matcher(passwordRegex);
+        return matcher.matches();
+    };
 
     public static void main(String[] args) {
 
         UserInfoUsingLambda userInfoUsingLambda = new UserInfoUsingLambda();
-        System.out.println(userInfoUsingLambda.firstName.isFirstName("Gopal"));
-        System.out.println("Last name is "+userInfoUsingLambda.lastName.isLastName("Das"));
-        System.out.println("Mobile number is "+userInfoUsingLambda.mobileNumber.isMobileNumber("91 8758664787"));
+        System.out.println("first Name is :- "+userInfoUsingLambda.firstName.isFirstName("Gopal"));
+        System.out.println("Last name is :- "+userInfoUsingLambda.lastName.isLastName("Das"));
+        System.out.println("Mobile number is :- "+userInfoUsingLambda.mobileNumber.isMobileNumber("91 8758664787"));
+        System.out.println("Last name is :- "+userInfoUsingLambda.password.isPassword("G@343u873"));
     }
 }
