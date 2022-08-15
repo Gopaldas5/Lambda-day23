@@ -24,6 +24,11 @@ public class UserInfoUsingLambda {
         Matcher matcher = password1.matcher(passwordRegex);
         return matcher.matches();
     };
+    Email email = (emailRegex)->{
+        Pattern email1 = Pattern.compile("^([a-zA-Z\\.]+)([a-zA-Z0-9\\.\\-+]+)@([a-zA-Z0-9\\._]+)\\.([a-z]{2,8})(\\.[a-z]{2,8})?$");
+        Matcher matcher = email1.matcher(emailRegex);
+        return matcher.matches();
+    };
 
     public static void main(String[] args) {
 
@@ -31,6 +36,7 @@ public class UserInfoUsingLambda {
         System.out.println("first Name is :- "+userInfoUsingLambda.firstName.isFirstName("Gopal"));
         System.out.println("Last name is :- "+userInfoUsingLambda.lastName.isLastName("Das"));
         System.out.println("Mobile number is :- "+userInfoUsingLambda.mobileNumber.isMobileNumber("91 8758664787"));
-        System.out.println("Last name is :- "+userInfoUsingLambda.password.isPassword("G@343u873"));
+        System.out.println("Password is :- "+userInfoUsingLambda.password.isPassword("G@343u873"));
+        System.out.println("Email is :- "+userInfoUsingLambda.email.isEmail("gopalkrdas1997@gamil.com"));
     }
 }
